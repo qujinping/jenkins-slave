@@ -13,7 +13,7 @@ COPY etc/policy.json /etc/containers/
 COPY ./skopeo /usr/bin 
 COPY ./kompose /usr/bin 
 
-RUN yum update -y && yum install nc -y && yum clean up && \
+RUN yum update -y && yum install nc -y && yum clean all -y && \
     curl -L https://github.com/openshift/origin/releases/download/v1.5.0/openshift-origin-client-tools-v1.5.0-031cbe4-linux-64bit.tar.gz | tar -C /tmp/ -zxvf - && \
     mv /tmp/openshift-origin-client-tools-*/oc /usr/bin/oc && \
     rm -rf /tmp/openshift-origin-client-tools-* && \
